@@ -19,6 +19,8 @@ class Utils {
                 CapacitiesEnum.CANNY_TRACKER -> "Canny tracker. The first time in a turn that an opponent adjacent to this player makes a Sidestep action, this player can be moved into the square that opponent moved from."
                 CapacitiesEnum.HULKING_BRUTE -> "Hulking brute. All Block actions made by this player count as having an assist."
                 CapacitiesEnum.FLIGHTY -> "Flighty. This player can move up to two squares instead of one when they make the Sidestep action. They must finish this move Open, not Marked."
+                CapacitiesEnum.FLESH_HUNGRY_HORROR -> "Flesh-hungry horror. When this player makes a Mark action, they can move up to 3 squares instead of 2."
+                CapacitiesEnum.UNDEAD_JUGGERNAUT -> "If this player makes a Mark action, treat the Shove result as the Knocked Down result for the next block this player makes this turn."
             }
         }
 
@@ -39,6 +41,11 @@ class Utils {
                 JobsEnum.CHAMELEON_SKINK -> "Chameleon skink"
                 JobsEnum.SAURUS_BLOCKER -> "Saurus blocker"
                 JobsEnum.SKINK_RUNNER -> "Skink runner"
+                JobsEnum.GHOUL -> "Ghoul"
+                JobsEnum.MUMMY -> "Mummy"
+                JobsEnum.SKELETON -> "Skeleton"
+                JobsEnum.WIGHT_BLITZER -> "Wight blitzer"
+                JobsEnum.ZOMBIE -> "Zombie"
             }
         }
     }
@@ -59,7 +66,9 @@ enum class CapacitiesEnum {
     SLIPPERY_LITTLE_RUNT,
     CANNY_TRACKER,
     HULKING_BRUTE,
-    FLIGHTY
+    FLIGHTY,
+    FLESH_HUNGRY_HORROR,
+    UNDEAD_JUGGERNAUT,
 }
 
 enum class JobsEnum {
@@ -77,5 +86,10 @@ enum class JobsEnum {
     HOPEFUL,
     CHAMELEON_SKINK,
     SAURUS_BLOCKER,
-    SKINK_RUNNER
+    SKINK_RUNNER,
+    GHOUL,
+    MUMMY,
+    SKELETON,
+    WIGHT_BLITZER,
+    ZOMBIE
 }

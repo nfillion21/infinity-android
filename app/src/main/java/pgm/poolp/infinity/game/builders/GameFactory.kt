@@ -27,6 +27,7 @@ import pgm.poolp.infinity.game.players.humans.ThrowerHuman
 import pgm.poolp.infinity.game.players.lizardmen.ChameleonSkinkLizardmen
 import pgm.poolp.infinity.game.players.lizardmen.SaurusBlockerLizardmen
 import pgm.poolp.infinity.game.players.lizardmen.SkinkRunnerLizardmen
+import pgm.poolp.infinity.game.players.undead.*
 import pgm.poolp.infinity.game.players.woodelves.CatcherWoodElf
 import pgm.poolp.infinity.game.players.woodelves.LinemanWoodElf
 import pgm.poolp.infinity.game.players.woodelves.ThrowerWoodElf
@@ -158,7 +159,7 @@ class GameFactory {
                 }
             },
 
-            // LIZARDMEN PLAYERS
+            // HUMAN PLAYERS
             object : PlayersFactory<HumanPlayers, Human> {
                 override fun build(type: HumanPlayers): Human {
                     return when (type) {
@@ -171,6 +172,23 @@ class GameFactory {
 
                 override fun randomPlayer(): Human {
                     return build(HumanPlayers.values().random())
+                }
+            },
+
+            // ZOMBIE PLAYERS
+            object : PlayersFactory<UndeadPlayers, Undead> {
+                override fun build(type: UndeadPlayers): Undead {
+                    return when (type) {
+                        UndeadPlayers.GHOUL -> GhoulUndead()
+                        UndeadPlayers.MUMMY -> MummyUndead()
+                        UndeadPlayers.SKELETON -> SkeletonUndead()
+                        UndeadPlayers.WIGHT_BLITZER -> WightBlitzerUndead()
+                        UndeadPlayers.ZOMBIE -> ZombieUndead()
+                    }
+                }
+
+                override fun randomPlayer(): Undead {
+                    return build(UndeadPlayers.values().random())
                 }
             }
         )
