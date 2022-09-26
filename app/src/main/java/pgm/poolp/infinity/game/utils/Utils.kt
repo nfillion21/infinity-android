@@ -1,8 +1,8 @@
 package pgm.poolp.infinity.game.utils
 
-class Capacities {
+class Utils {
     companion object {
-        fun capacity(capability: CapacitiesEnum) : String {
+        fun capacity(capability: CapacitiesEnum): String {
             return when (capability) {
                 CapacitiesEnum.CATCHERS_INSTINCT -> "Catcher's instincts. If this player catches a thrown ball (not a hand-off or bouncing ball), roll a six-sided dice. This player can make a free Run action up to that many squares."
                 CapacitiesEnum.HEADBUTT -> "Headbutt. If this player makes a Mark action and they have already made a Run action this turn, they can immediately make a free Block action."
@@ -12,6 +12,22 @@ class Capacities {
                 CapacitiesEnum.FRENZIED -> "Frenzied. After this player makes a Mark action, they can immediately make a free Block action."
                 CapacitiesEnum.HANDLING_SKILLS -> "Handling skills. Whenever this player moves into a square containing the ball, they pick it up as though they were making a Run action."
                 CapacitiesEnum.WARDANCE -> "Wardance. When this player makes a Run action, they can move adjacent to opponents, but doing so ends the action."
+                CapacitiesEnum.SMALL_AND_SHIFTY -> "Small and shifty. When this player makes a Run action they can move adjacents to opponents, but must end the action Openm not Marked."
+            }
+        }
+
+        fun job(job: JobsEnum): String {
+            return when (job) {
+                JobsEnum.BEASTMAN_RUNNER -> "Beastman runner"
+                JobsEnum.BLOCKER -> "Blocker"
+                JobsEnum.BLITZER -> "Blitzer"
+                JobsEnum.LINEMAN -> "Lineman"
+                JobsEnum.RUNNER -> "Runner"
+                JobsEnum.WITCH_ELF -> "Witch elf"
+                JobsEnum.TROLL_SLAYER -> "Troll slayer"
+                JobsEnum.CATCHER -> "Catcher"
+                JobsEnum.THROWER -> "Thrower"
+                JobsEnum.WARDANCER -> "Wardancer"
             }
         }
     }
@@ -25,5 +41,19 @@ enum class CapacitiesEnum {
     SAFE_HANDS,
     FRENZIED,
     HANDLING_SKILLS,
-    WARDANCE
+    WARDANCE,
+    SMALL_AND_SHIFTY
+}
+
+enum class JobsEnum {
+    BEASTMAN_RUNNER,
+    BLOCKER,
+    BLITZER,
+    LINEMAN,
+    RUNNER,
+    WITCH_ELF,
+    TROLL_SLAYER,
+    CATCHER,
+    THROWER,
+    WARDANCER
 }

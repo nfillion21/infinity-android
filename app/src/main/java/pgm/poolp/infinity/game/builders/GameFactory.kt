@@ -16,6 +16,7 @@ import pgm.poolp.infinity.game.players.elves.BlitzerElf
 import pgm.poolp.infinity.game.players.elves.CatcherElf
 import pgm.poolp.infinity.game.players.elves.LinemanElf
 import pgm.poolp.infinity.game.players.elves.ThrowerElf
+import pgm.poolp.infinity.game.players.goblins.LinemanGoblin
 import pgm.poolp.infinity.game.players.woodelves.CatcherWoodElf
 import pgm.poolp.infinity.game.players.woodelves.LinemanWoodElf
 import pgm.poolp.infinity.game.players.woodelves.ThrowerWoodElf
@@ -104,6 +105,18 @@ class GameFactory {
                 }
             },
 
+            // GOBLIN PLAYERS
+            object : PlayersFactory<GoblinPlayers, Goblin> {
+                override fun build(type: GoblinPlayers): Goblin {
+                    return when (type) {
+                        GoblinPlayers.LINEMAN -> LinemanGoblin()
+                    }
+                }
+
+                override fun randomPlayer(): Goblin {
+                    return build(GoblinPlayers.values().random())
+                }
+            },
         )
 
     fun randomPlayer() : Player {

@@ -1,12 +1,13 @@
 package pgm.poolp.infinity.game.players.darkelves
 
 import pgm.poolp.infinity.game.interfaces.DarkElf
-import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.Utils
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
+import pgm.poolp.infinity.game.utils.JobsEnum
 
 class RunnerDarkElf : DarkElf {
     override val name: String
-        get() = "Runner"
+        get() = Utils.job(JobsEnum.RUNNER)
     override val move: Int
         get() = 7
     override val throwBall: Int
@@ -14,5 +15,5 @@ class RunnerDarkElf : DarkElf {
     override val armour: Int
         get() = 4
     override val capacity: String?
-        get() = Capacities.capacity(CapacitiesEnum.SAFE_HANDS)
+        get() = Utils.capacity(CapacitiesEnum.SAFE_HANDS)
 }
