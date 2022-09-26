@@ -20,6 +20,13 @@ import pgm.poolp.infinity.game.players.goblins.LinemanGoblin
 import pgm.poolp.infinity.game.players.halflings.HeftyHalfling
 import pgm.poolp.infinity.game.players.halflings.HopefulHalfling
 import pgm.poolp.infinity.game.players.halflings.RunnerHalfling
+import pgm.poolp.infinity.game.players.humans.BlitzerHuman
+import pgm.poolp.infinity.game.players.humans.CatcherHuman
+import pgm.poolp.infinity.game.players.humans.LinemanHuman
+import pgm.poolp.infinity.game.players.humans.ThrowerHuman
+import pgm.poolp.infinity.game.players.lizardmen.ChameleonSkinkLizardmen
+import pgm.poolp.infinity.game.players.lizardmen.SaurusBlockerLizardmen
+import pgm.poolp.infinity.game.players.lizardmen.SkinkRunnerLizardmen
 import pgm.poolp.infinity.game.players.woodelves.CatcherWoodElf
 import pgm.poolp.infinity.game.players.woodelves.LinemanWoodElf
 import pgm.poolp.infinity.game.players.woodelves.ThrowerWoodElf
@@ -121,7 +128,6 @@ class GameFactory {
                 }
             },
 
-
             // HALFLINGS PLAYERS
             object : PlayersFactory<HalflingPlayers, Halfling> {
                 override fun build(type: HalflingPlayers): Halfling {
@@ -136,6 +142,37 @@ class GameFactory {
                     return build(HalflingPlayers.values().random())
                 }
             },
+
+            // LIZARDMEN PLAYERS
+            object : PlayersFactory<LizardmenPlayers, Lizardmen> {
+                override fun build(type: LizardmenPlayers): Lizardmen {
+                    return when (type) {
+                        LizardmenPlayers.CHAMELEON_SKINK -> ChameleonSkinkLizardmen()
+                        LizardmenPlayers.SAURUS_BLOCKER -> SaurusBlockerLizardmen()
+                        LizardmenPlayers.SKINK_RUNNER -> SkinkRunnerLizardmen()
+                    }
+                }
+
+                override fun randomPlayer(): Lizardmen {
+                    return build(LizardmenPlayers.values().random())
+                }
+            },
+
+            // LIZARDMEN PLAYERS
+            object : PlayersFactory<HumanPlayers, Human> {
+                override fun build(type: HumanPlayers): Human {
+                    return when (type) {
+                        HumanPlayers.BLITZER -> BlitzerHuman()
+                        HumanPlayers.CATCHER -> CatcherHuman()
+                        HumanPlayers.LINEMAN -> LinemanHuman()
+                        HumanPlayers.THROWER -> ThrowerHuman()
+                    }
+                }
+
+                override fun randomPlayer(): Human {
+                    return build(HumanPlayers.values().random())
+                }
+            }
         )
 
     fun randomPlayer() : Player {
