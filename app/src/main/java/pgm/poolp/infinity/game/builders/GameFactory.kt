@@ -1,6 +1,6 @@
 package pgm.poolp.infinity.game.builders
 
-import pgm.poolp.infinity.game.enums.*
+import pgm.poolp.infinity.game.params.*
 import pgm.poolp.infinity.game.interfaces.*
 import pgm.poolp.infinity.game.players.chaos.BeastmanRunnerChaos
 import pgm.poolp.infinity.game.players.chaos.BlockerChaos

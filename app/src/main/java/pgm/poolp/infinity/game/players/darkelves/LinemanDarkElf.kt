@@ -1,6 +1,6 @@
 package pgm.poolp.infinity.game.players.darkelves
 
-import pgm.poolp.infinity.game.interfaces.DarkElf
+import pgm.poolp.infinity.game.params.DarkElf
 import pgm.poolp.infinity.game.utils.JobsEnum
 import pgm.poolp.infinity.game.utils.Utils
 

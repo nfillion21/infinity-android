@@ -1,10 +1,8 @@
 package pgm.poolp.infinity.game.players.undead
 
-import pgm.poolp.infinity.game.interfaces.Undead
-import pgm.poolp.infinity.game.interfaces.WoodElf
-import pgm.poolp.infinity.game.utils.Utils
-import pgm.poolp.infinity.game.utils.CapacitiesEnum
+import pgm.poolp.infinity.game.params.Undead
 import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Utils
 
 class SkeletonUndead : Undead {
     override val name: String

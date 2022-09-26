@@ -1,9 +1,9 @@
 package pgm.poolp.infinity.game.players.dwarves
 
-import pgm.poolp.infinity.game.interfaces.Dwarf
-import pgm.poolp.infinity.game.utils.Utils
+import pgm.poolp.infinity.game.params.Dwarf
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
 import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Utils
 
 class BlitzerDwarf : Dwarf {
     override val name: String

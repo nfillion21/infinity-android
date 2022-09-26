@@ -1,6 +1,6 @@
 package pgm.poolp.infinity.game.players.halflings
 
-import pgm.poolp.infinity.game.interfaces.Halfling
+import pgm.poolp.infinity.game.params.Halfling
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
 import pgm.poolp.infinity.game.utils.JobsEnum
 import pgm.poolp.infinity.game.utils.Utils

@@ -1,6 +1,6 @@
 package pgm.poolp.infinity.game.players.lizardmen
 
-import pgm.poolp.infinity.game.interfaces.Lizardmen
+import pgm.poolp.infinity.game.params.Lizardmen
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
 import pgm.poolp.infinity.game.utils.JobsEnum
 import pgm.poolp.infinity.game.utils.Utils

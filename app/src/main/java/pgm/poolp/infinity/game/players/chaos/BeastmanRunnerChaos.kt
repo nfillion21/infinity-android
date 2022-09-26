@@ -1,6 +1,6 @@
 package pgm.poolp.infinity.game.players.chaos
 
-import pgm.poolp.infinity.game.interfaces.Chaos
+import pgm.poolp.infinity.game.params.Chaos
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
 import pgm.poolp.infinity.game.utils.JobsEnum
 import pgm.poolp.infinity.game.utils.Utils

@@ -1,6 +1,6 @@
 package pgm.poolp.infinity.game.players.woodelves
 
-import pgm.poolp.infinity.game.interfaces.WoodElf
+import pgm.poolp.infinity.game.params.WoodElf
 import pgm.poolp.infinity.game.utils.JobsEnum
 import pgm.poolp.infinity.game.utils.Utils
 

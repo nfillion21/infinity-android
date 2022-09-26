@@ -1,6 +1,6 @@
 package pgm.poolp.infinity.game.players.elves
 
-import pgm.poolp.infinity.game.interfaces.Elf
+import pgm.poolp.infinity.game.params.Elf
 import pgm.poolp.infinity.game.utils.JobsEnum
 import pgm.poolp.infinity.game.utils.Utils
 

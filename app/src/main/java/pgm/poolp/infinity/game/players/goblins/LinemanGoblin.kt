@@ -1,10 +1,9 @@
 package pgm.poolp.infinity.game.players.goblins
 
-import pgm.poolp.infinity.game.interfaces.Goblin
-import pgm.poolp.infinity.game.interfaces.WoodElf
-import pgm.poolp.infinity.game.utils.Utils
+import pgm.poolp.infinity.game.params.Goblin
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
 import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Utils
 
 class LinemanGoblin : Goblin {
     override val name: String
