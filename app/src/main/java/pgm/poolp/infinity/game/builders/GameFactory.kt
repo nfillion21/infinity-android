@@ -17,6 +17,9 @@ import pgm.poolp.infinity.game.players.elves.CatcherElf
 import pgm.poolp.infinity.game.players.elves.LinemanElf
 import pgm.poolp.infinity.game.players.elves.ThrowerElf
 import pgm.poolp.infinity.game.players.goblins.LinemanGoblin
+import pgm.poolp.infinity.game.players.halflings.HeftyHalfling
+import pgm.poolp.infinity.game.players.halflings.HopefulHalfling
+import pgm.poolp.infinity.game.players.halflings.RunnerHalfling
 import pgm.poolp.infinity.game.players.woodelves.CatcherWoodElf
 import pgm.poolp.infinity.game.players.woodelves.LinemanWoodElf
 import pgm.poolp.infinity.game.players.woodelves.ThrowerWoodElf
@@ -105,7 +108,7 @@ class GameFactory {
                 }
             },
 
-            // GOBLIN PLAYERS
+            // GOBLINS PLAYERS
             object : PlayersFactory<GoblinPlayers, Goblin> {
                 override fun build(type: GoblinPlayers): Goblin {
                     return when (type) {
@@ -115,6 +118,22 @@ class GameFactory {
 
                 override fun randomPlayer(): Goblin {
                     return build(GoblinPlayers.values().random())
+                }
+            },
+
+
+            // HALFLINGS PLAYERS
+            object : PlayersFactory<HalflingPlayers, Halfling> {
+                override fun build(type: HalflingPlayers): Halfling {
+                    return when (type) {
+                        HalflingPlayers.HEFTY -> HeftyHalfling()
+                        HalflingPlayers.HOPEFUL -> HopefulHalfling()
+                        HalflingPlayers.RUNNER -> RunnerHalfling()
+                    }
+                }
+
+                override fun randomPlayer(): Halfling {
+                    return build(HalflingPlayers.values().random())
                 }
             },
         )

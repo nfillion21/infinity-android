@@ -13,6 +13,9 @@ class Utils {
                 CapacitiesEnum.HANDLING_SKILLS -> "Handling skills. Whenever this player moves into a square containing the ball, they pick it up as though they were making a Run action."
                 CapacitiesEnum.WARDANCE -> "Wardance. When this player makes a Run action, they can move adjacent to opponents, but doing so ends the action."
                 CapacitiesEnum.SMALL_AND_SHIFTY -> "Small and shifty. When this player makes a Run action they can move adjacents to opponents, but must end the action Openm not Marked."
+                CapacitiesEnum.VERY_WELL_FED -> "In your turn, if this player is on the pitch, this player can make one free Block or Mark action."
+                CapacitiesEnum.QUANTITY_OVER_QUALITY -> "In your turn, if this player is on the pitchm this player can make one free Block or Mark action."
+                CapacitiesEnum.SLIPPERY_LITTLE_RUNT -> "When this player is the target of a Block action, and the result of that Block is a Miss, Shove or Tackle, their coach can choose to ignore the result and this player can make a free Sidestep action."
             }
         }
 
@@ -28,6 +31,8 @@ class Utils {
                 JobsEnum.CATCHER -> "Catcher"
                 JobsEnum.THROWER -> "Thrower"
                 JobsEnum.WARDANCER -> "Wardancer"
+                JobsEnum.HEFTY -> "Hefty"
+                JobsEnum.HOPEFUL -> "Hopeful"
             }
         }
     }
@@ -42,7 +47,10 @@ enum class CapacitiesEnum {
     FRENZIED,
     HANDLING_SKILLS,
     WARDANCE,
-    SMALL_AND_SHIFTY
+    SMALL_AND_SHIFTY,
+    VERY_WELL_FED,
+    QUANTITY_OVER_QUALITY,
+    SLIPPERY_LITTLE_RUNT
 }
 
 enum class JobsEnum {
@@ -55,5 +63,7 @@ enum class JobsEnum {
     TROLL_SLAYER,
     CATCHER,
     THROWER,
-    WARDANCER
+    WARDANCER,
+    HEFTY,
+    HOPEFUL
 }
