@@ -1,6 +1,8 @@
-package pgm.poolp.infinity.game.players
+package pgm.poolp.infinity.game.players.elves
 
 import pgm.poolp.infinity.game.interfaces.Elf
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.CapacitiesEnum
 
 class CatcherElf : Elf {
     override val name: String
@@ -12,5 +14,5 @@ class CatcherElf : Elf {
     override val armour: Int
         get() = 6
     override val capacity: String?
-        get() = "Catcher's instincts. If this player catches a thrown ball (not a hand-off or bouncing ball), roll a six-sided dice. This player can make a free Run action up to that many squares."
+        get() = Capacities.capacity(CapacitiesEnum.CATCHERS_INSTINCT)
 }

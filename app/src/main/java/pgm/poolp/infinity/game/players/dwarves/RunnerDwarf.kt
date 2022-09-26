@@ -1,6 +1,8 @@
-package pgm.poolp.infinity.game.players
+package pgm.poolp.infinity.game.players.dwarves
 
 import pgm.poolp.infinity.game.interfaces.Dwarf
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.CapacitiesEnum
 
 class RunnerDwarf : Dwarf {
     override val name: String
@@ -12,5 +14,5 @@ class RunnerDwarf : Dwarf {
     override val armour: Int
         get() = 3
     override val capacity: String?
-        get() = "Safe hands. If this player is Knocked Down while holding the ball, you can choose which adjacent square the ball bounces into instead of rolling the eight-sided dice."
+        get() = Capacities.capacity(CapacitiesEnum.SAFE_HANDS)
 }

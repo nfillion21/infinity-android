@@ -1,4 +1,4 @@
-package pgm.poolp.infinity.game.players
+package pgm.poolp.infinity.game.players.elves
 
 import pgm.poolp.infinity.game.interfaces.Elf
 

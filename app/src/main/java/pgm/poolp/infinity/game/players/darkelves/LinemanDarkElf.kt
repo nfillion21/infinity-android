@@ -1,16 +1,16 @@
-package pgm.poolp.infinity.game.players
+package pgm.poolp.infinity.game.players.darkelves
 
-import pgm.poolp.infinity.game.interfaces.Dwarf
+import pgm.poolp.infinity.game.interfaces.DarkElf
 
-class LinemanDwarf : Dwarf {
+class LinemanDarkElf : DarkElf {
     override val name: String
         get() = "Lineman"
     override val move: Int
-        get() = 4
+        get() = 6
     override val throwBall: Int
-        get() = 5
+        get() = 3
     override val armour: Int
-        get() = 2
+        get() = 4
     override val capacity: String?
         get() = null
 }

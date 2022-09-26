@@ -1,6 +1,8 @@
-package pgm.poolp.infinity.game.players
+package pgm.poolp.infinity.game.players.elves
 
 import pgm.poolp.infinity.game.interfaces.Elf
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.CapacitiesEnum
 
 class ThrowerElf : Elf {
     override val name: String
@@ -12,5 +14,5 @@ class ThrowerElf : Elf {
     override val armour: Int
         get() = 5
     override val capacity: String?
-        get() = "Handling skills. Whenever this player moves into a square containing the ball, they pick it up as though they were making a Run action."
+        get() = Capacities.capacity(CapacitiesEnum.HANDLING_SKILLS)
 }

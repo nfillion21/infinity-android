@@ -1,6 +1,8 @@
-package pgm.poolp.infinity.game.players
+package pgm.poolp.infinity.game.players.elves
 
 import pgm.poolp.infinity.game.interfaces.Elf
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.CapacitiesEnum
 
 class BlitzerElf : Elf {
     override val name: String
@@ -12,5 +14,5 @@ class BlitzerElf : Elf {
     override val armour: Int
         get() = 5
     override val capacity: String?
-        get() = "Offensive specialist. Whenever this player makes a Block action, their coach can choose to re-roll the Block dice."
+        get() = Capacities.capacity(CapacitiesEnum.OFFENSIVE_SPECIALIST)
 }

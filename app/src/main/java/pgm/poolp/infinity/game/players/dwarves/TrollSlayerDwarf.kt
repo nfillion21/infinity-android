@@ -1,6 +1,8 @@
-package pgm.poolp.infinity.game.players
+package pgm.poolp.infinity.game.players.dwarves
 
 import pgm.poolp.infinity.game.interfaces.Dwarf
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.CapacitiesEnum
 
 class TrollSlayerDwarf : Dwarf {
     override val name: String
@@ -12,5 +14,5 @@ class TrollSlayerDwarf : Dwarf {
     override val armour: Int
         get() = 4
     override val capacity: String?
-        get() = "Frenzied. After this player makes a Mark action, they can immediately make a free Block action."
+        get() = Capacities.capacity(CapacitiesEnum.FRENZIED)
 }
