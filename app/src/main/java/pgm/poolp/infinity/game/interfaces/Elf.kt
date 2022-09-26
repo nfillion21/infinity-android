@@ -1,4 +1,3 @@
 package pgm.poolp.infinity.game.interfaces
 
-interface Elf : Player {
-}
+interface Elf : Player
