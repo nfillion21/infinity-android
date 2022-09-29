@@ -3,11 +3,10 @@ package pgm.poolp.infinity.game.players.woodelves
 import pgm.poolp.infinity.game.params.WoodElf
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
 import pgm.poolp.infinity.game.utils.JobsEnum
-import pgm.poolp.infinity.game.utils.Utils
 
 class WardancerWoodElf : WoodElf {
     override val name: String
-        get() = Utils.job(JobsEnum.WARDANCER)
+        get() = JobsEnum.WARDANCER.description
     override val move: Int
         get() = 7
     override val throwBall: Int
@@ -15,5 +14,5 @@ class WardancerWoodElf : WoodElf {
     override val armour: Int
         get() = 5
     override val capacity: String?
-        get() = Utils.capacity(CapacitiesEnum.HANDLING_SKILLS)
+        get() = CapacitiesEnum.HANDLING_SKILLS.description
 }

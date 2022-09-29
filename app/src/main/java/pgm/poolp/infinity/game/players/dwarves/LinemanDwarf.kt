@@ -2,11 +2,10 @@ package pgm.poolp.infinity.game.players.dwarves
 
 import pgm.poolp.infinity.game.params.Dwarf
 import pgm.poolp.infinity.game.utils.JobsEnum
-import pgm.poolp.infinity.game.utils.Utils
 
 class LinemanDwarf : Dwarf {
     override val name: String
-        get() = Utils.job(JobsEnum.LINEMAN)
+        get() = JobsEnum.LINEMAN.description
     override val move: Int
         get() = 4
     override val throwBall: Int

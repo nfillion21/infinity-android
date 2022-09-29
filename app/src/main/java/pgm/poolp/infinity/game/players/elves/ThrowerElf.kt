@@ -3,11 +3,10 @@ package pgm.poolp.infinity.game.players.elves
 import pgm.poolp.infinity.game.params.Elf
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
 import pgm.poolp.infinity.game.utils.JobsEnum
-import pgm.poolp.infinity.game.utils.Utils
 
 class ThrowerElf : Elf {
     override val name: String
-        get() = Utils.job(JobsEnum.THROWER)
+        get() = JobsEnum.THROWER.description
     override val move : Int
         get() = 6
     override val throwBall: Int
@@ -15,5 +14,5 @@ class ThrowerElf : Elf {
     override val armour: Int
         get() = 5
     override val capacity: String?
-        get() = Utils.capacity(CapacitiesEnum.HANDLING_SKILLS)
+        get() = CapacitiesEnum.HANDLING_SKILLS.description
 }

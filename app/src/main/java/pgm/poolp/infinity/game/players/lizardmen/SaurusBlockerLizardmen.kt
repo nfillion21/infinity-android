@@ -3,11 +3,10 @@ package pgm.poolp.infinity.game.players.lizardmen
 import pgm.poolp.infinity.game.params.Lizardmen
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
 import pgm.poolp.infinity.game.utils.JobsEnum
-import pgm.poolp.infinity.game.utils.Utils
 
 class SaurusBlockerLizardmen : Lizardmen {
     override val name: String
-        get() = Utils.job(JobsEnum.SAURUS_BLOCKER)
+        get() = JobsEnum.SAURUS_BLOCKER.description
     override val move: Int
         get() = 5
     override val throwBall: Int
@@ -15,5 +14,5 @@ class SaurusBlockerLizardmen : Lizardmen {
     override val armour: Int
         get() = 2
     override val capacity: String?
-        get() = Utils.capacity(CapacitiesEnum.HULKING_BRUTE)
+        get() = CapacitiesEnum.HULKING_BRUTE.description
 }

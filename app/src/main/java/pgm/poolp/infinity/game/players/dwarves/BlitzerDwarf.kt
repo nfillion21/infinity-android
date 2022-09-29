@@ -3,11 +3,10 @@ package pgm.poolp.infinity.game.players.dwarves
 import pgm.poolp.infinity.game.params.Dwarf
 import pgm.poolp.infinity.game.utils.CapacitiesEnum
 import pgm.poolp.infinity.game.utils.JobsEnum
-import pgm.poolp.infinity.game.utils.Utils
 
 class BlitzerDwarf : Dwarf {
     override val name: String
-        get() = Utils.job(JobsEnum.BLITZER)
+        get() = JobsEnum.BLITZER.description
     override val move: Int
         get() = 5
     override val throwBall: Int
@@ -15,5 +14,5 @@ class BlitzerDwarf : Dwarf {
     override val armour: Int
         get() = 2
     override val capacity: String?
-        get() = Utils.capacity(CapacitiesEnum.OFFENSIVE_SPECIALIST)
+        get() = CapacitiesEnum.OFFENSIVE_SPECIALIST.description
 }
