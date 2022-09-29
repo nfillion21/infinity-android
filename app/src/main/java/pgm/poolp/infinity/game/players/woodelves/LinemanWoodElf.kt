@@ -1,11 +1,11 @@
 package pgm.poolp.infinity.game.players.woodelves
 
 import pgm.poolp.infinity.game.params.WoodElf
-import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Jobs
 
 class LinemanWoodElf : WoodElf {
     override val name: String
-        get() = JobsEnum.LINEMAN.description
+        get() = Jobs.LINEMAN.description
     override val move: Int
         get() = 7
     override val throwBall: Int

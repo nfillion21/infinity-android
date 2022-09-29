@@ -1,12 +1,12 @@
 package pgm.poolp.infinity.game.players.halflings
 
 import pgm.poolp.infinity.game.params.Halfling
-import pgm.poolp.infinity.game.utils.CapacitiesEnum
-import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.Jobs
 
 class HopefulHalfling : Halfling {
     override val name: String
-        get() = JobsEnum.HOPEFUL.description
+        get() = Jobs.HOPEFUL.description
     override val move: Int
         get() = 5
     override val throwBall: Int
@@ -14,5 +14,5 @@ class HopefulHalfling : Halfling {
     override val armour: Int
         get() = 6
     override val capacity: String?
-        get() = CapacitiesEnum.QUANTITY_OVER_QUALITY.description
+        get() = Capacities.QUANTITY_OVER_QUALITY.description
 }

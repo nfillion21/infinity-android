@@ -1,12 +1,12 @@
 package pgm.poolp.infinity.game.players.lizardmen
 
 import pgm.poolp.infinity.game.params.Lizardmen
-import pgm.poolp.infinity.game.utils.CapacitiesEnum
-import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.Jobs
 
 class SkinkRunnerLizardmen : Lizardmen {
     override val name: String
-        get() = JobsEnum.SKINK_RUNNER.description
+        get() = Jobs.SKINK_RUNNER.description
     override val move: Int
         get() = 7
     override val throwBall: Int
@@ -14,5 +14,5 @@ class SkinkRunnerLizardmen : Lizardmen {
     override val armour: Int
         get() = 5
     override val capacity: String?
-        get() = CapacitiesEnum.FLIGHTY.description
+        get() = Capacities.FLIGHTY.description
 }

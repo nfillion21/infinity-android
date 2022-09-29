@@ -1,12 +1,12 @@
 package pgm.poolp.infinity.game.players.undead
 
 import pgm.poolp.infinity.game.params.Undead
-import pgm.poolp.infinity.game.utils.CapacitiesEnum
-import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.Jobs
 
 class MummyUndead : Undead {
     override val name: String
-        get() = JobsEnum.MUMMY.description
+        get() = Jobs.MUMMY.description
     override val move: Int
         get() = 3
     override val throwBall: Int
@@ -14,5 +14,5 @@ class MummyUndead : Undead {
     override val armour: Int
         get() = 2
     override val capacity: String?
-        get() = CapacitiesEnum.UNDEAD_JUGGERNAUT.description
+        get() = Capacities.UNDEAD_JUGGERNAUT.description
 }

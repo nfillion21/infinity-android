@@ -1,12 +1,12 @@
 package pgm.poolp.infinity.game.players.humans
 
 import pgm.poolp.infinity.game.params.Human
-import pgm.poolp.infinity.game.utils.CapacitiesEnum
-import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.Jobs
 
 class CatcherHuman : Human {
     override val name: String
-        get() = JobsEnum.CATCHER.description
+        get() = Jobs.CATCHER.description
     override val move: Int
         get() = 7
     override val throwBall: Int
@@ -14,5 +14,5 @@ class CatcherHuman : Human {
     override val armour: Int
         get() = 5
     override val capacity: String?
-        get() = CapacitiesEnum.CATCHERS_INSTINCT.description
+        get() = Capacities.CATCHERS_INSTINCT.description
 }

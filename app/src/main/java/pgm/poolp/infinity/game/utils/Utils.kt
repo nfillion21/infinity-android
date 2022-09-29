@@ -1,6 +1,6 @@
 package pgm.poolp.infinity.game.utils
 
-enum class CapacitiesEnum(val description:String) {
+enum class Capacities(val description:String) {
     CATCHERS_INSTINCT("Catcher's instincts. If this player catches a thrown ball (not a hand-off or bouncing ball), roll a six-sided dice. This player can make a free Run action up to that many squares."),
     HEADBUTT("Headbutt. If this player makes a Mark action and they have already made a Run action this turn, they can immediately make a free Block action."),
     INDOMITABLE("Indomitable. This player cannot be Knocked Down. If this player would be, and this player is carrying the ball, the ball bounces. Then, make an Armour check for this player - if it is passed, there is no further effect. If it is failed, this player is injured."),
@@ -18,9 +18,11 @@ enum class CapacitiesEnum(val description:String) {
     FLIGHTY("Flighty. This player can move up to two squares instead of one when they make the Sidestep action. They must finish this move Open, not Marked."),
     FLESH_HUNGRY_HORROR("Flesh-hungry horror. When this player makes a Mark action, they can move up to 3 squares instead of 2."),
     UNDEAD_JUGGERNAUT("Undead juggernaut. If this player makes a Mark action, treat the Shove result as the Knocked Down result for the next block this player makes this turn."),
+    IMMOVABLE_BULK("Immovable bulk. If this player is the target of a Block action, the Shove result is treated as the Miss result."),
+    SNEAKY_STABBER("Sneaky stabber. If this player makes a Block action with an assist, roll a six-sided dice as well as the two Block dice. If that dice roll is a 6, the target is automatically injured - do not resolve the block.")
 }
 
-enum class JobsEnum (val description: String) {
+enum class Jobs (val description: String) {
     BEASTMAN_RUNNER("Beastman runner"),
     BLOCKER("Blocker"),
     BLITZER("Blitzer"),
@@ -40,5 +42,10 @@ enum class JobsEnum (val description: String) {
     MUMMY("Mummy"),
     SKELETON("Skeleton"),
     WIGHT_BLITZER("Wight blitzer"),
-    ZOMBIE("Zombie")
+    ZOMBIE("Zombie"),
+    BLOATER("Bloater"),
+    PESTIGOR("Pestigor"),
+    ROTTER("Rotter"),
+    BLACK_ORC_BLOCKER("Black orc blocker"),
+    GUTTER_RUNNER("Gutter runner")
 }

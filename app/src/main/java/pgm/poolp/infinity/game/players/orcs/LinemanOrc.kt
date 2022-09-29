@@ -1,12 +1,12 @@
-package pgm.poolp.infinity.game.players.chaos
+package pgm.poolp.infinity.game.players.orcs
 
-import pgm.poolp.infinity.game.params.Chaos
+import pgm.poolp.infinity.game.params.Orc
 import pgm.poolp.infinity.game.utils.Capacities
 import pgm.poolp.infinity.game.utils.Jobs
 
-class BlockerChaos : Chaos {
+class LinemanOrc : Orc {
     override val name: String
-        get() = Jobs.BLOCKER.description
+        get() = Jobs.LINEMAN.description
     override val move: Int
         get() = 5
     override val throwBall: Int
@@ -14,5 +14,5 @@ class BlockerChaos : Chaos {
     override val armour: Int
         get() = 3
     override val capacity: String?
-        get() = Capacities.INDOMITABLE.description
+        get() = null
 }

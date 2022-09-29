@@ -1,11 +1,11 @@
 package pgm.poolp.infinity.game.players.undead
 
 import pgm.poolp.infinity.game.params.Undead
-import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Jobs
 
 class SkeletonUndead : Undead {
     override val name: String
-        get() = JobsEnum.SKELETON.description
+        get() = Jobs.SKELETON.description
     override val move: Int
         get() = 5
     override val throwBall: Int

@@ -1,18 +1,18 @@
-package pgm.poolp.infinity.game.players.chaos
+package pgm.poolp.infinity.game.players.nurgle
 
-import pgm.poolp.infinity.game.params.Chaos
+import pgm.poolp.infinity.game.params.Nurgle
 import pgm.poolp.infinity.game.utils.Capacities
 import pgm.poolp.infinity.game.utils.Jobs
 
-class BlockerChaos : Chaos {
+class PestigorNurgle : Nurgle {
     override val name: String
-        get() = Jobs.BLOCKER.description
+        get() = Jobs.PESTIGOR.description
     override val move: Int
-        get() = 5
+        get() = 6
     override val throwBall: Int
         get() = 4
     override val armour: Int
-        get() = 3
+        get() = 4
     override val capacity: String?
-        get() = Capacities.INDOMITABLE.description
+        get() = Capacities.HEADBUTT.description
 }

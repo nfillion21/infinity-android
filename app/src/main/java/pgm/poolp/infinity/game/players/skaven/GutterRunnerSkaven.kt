@@ -1,18 +1,18 @@
-package pgm.poolp.infinity.game.players.halflings
+package pgm.poolp.infinity.game.players.skaven
 
-import pgm.poolp.infinity.game.params.Halfling
+import pgm.poolp.infinity.game.params.Skaven
 import pgm.poolp.infinity.game.utils.Capacities
 import pgm.poolp.infinity.game.utils.Jobs
 
-class RunnerHalfling : Halfling {
+class GutterRunnerSkaven : Skaven {
     override val name: String
-        get() = Jobs.RUNNER.description
+        get() = Jobs.GUTTER_RUNNER.description
     override val move: Int
-        get() = 5
+        get() = 9
     override val throwBall: Int
         get() = 4
     override val armour: Int
         get() = 6
     override val capacity: String?
-        get() = Capacities.SLIPPERY_LITTLE_RUNT.description
+        get() = Capacities.SNEAKY_STABBER.description
 }

@@ -27,6 +27,17 @@ import pgm.poolp.infinity.game.players.humans.ThrowerHuman
 import pgm.poolp.infinity.game.players.lizardmen.ChameleonSkinkLizardmen
 import pgm.poolp.infinity.game.players.lizardmen.SaurusBlockerLizardmen
 import pgm.poolp.infinity.game.players.lizardmen.SkinkRunnerLizardmen
+import pgm.poolp.infinity.game.players.nurgle.BloaterNurgle
+import pgm.poolp.infinity.game.players.nurgle.PestigorNurgle
+import pgm.poolp.infinity.game.players.nurgle.RotterNurgle
+import pgm.poolp.infinity.game.players.orcs.BlackOrcBlockerOrc
+import pgm.poolp.infinity.game.players.orcs.BlitzerOrc
+import pgm.poolp.infinity.game.players.orcs.LinemanOrc
+import pgm.poolp.infinity.game.players.orcs.ThrowerOrc
+import pgm.poolp.infinity.game.players.skaven.BlitzerSkaven
+import pgm.poolp.infinity.game.players.skaven.GutterRunnerSkaven
+import pgm.poolp.infinity.game.players.skaven.LinemanSkaven
+import pgm.poolp.infinity.game.players.skaven.ThrowerSkaven
 import pgm.poolp.infinity.game.players.undead.*
 import pgm.poolp.infinity.game.players.woodelves.CatcherWoodElf
 import pgm.poolp.infinity.game.players.woodelves.LinemanWoodElf
@@ -189,6 +200,53 @@ class GameFactory {
 
                 override fun randomPlayer(): Undead {
                     return build(UndeadPlayers.values().random())
+                }
+            },
+
+            // NURGLE PLAYERS
+            object : PlayersFactory<NurglePlayers, Nurgle> {
+                override fun build(type: NurglePlayers): Nurgle {
+                    return when (type) {
+                        NurglePlayers.BLOATER -> BloaterNurgle()
+                        NurglePlayers.PESTIGOR -> PestigorNurgle()
+                        NurglePlayers.ROTTER -> RotterNurgle()
+                    }
+                }
+
+                override fun randomPlayer(): Nurgle {
+                    return build(NurglePlayers.values().random())
+                }
+            },
+
+            // ORC PLAYERS
+            object : PlayersFactory<OrcPlayers, Orc> {
+                override fun build(type: OrcPlayers): Orc {
+                    return when (type) {
+                        OrcPlayers.BLACK_ORC_BLOCKER -> BlackOrcBlockerOrc()
+                        OrcPlayers.BLITZER -> BlitzerOrc()
+                        OrcPlayers.LINEMAN -> LinemanOrc()
+                        OrcPlayers.THROWER -> ThrowerOrc()
+                    }
+                }
+
+                override fun randomPlayer(): Orc {
+                    return build(OrcPlayers.values().random())
+                }
+            },
+
+            // SKAVEN PLAYERS
+            object : PlayersFactory<SkavenPlayers, Skaven> {
+                override fun build(type: SkavenPlayers): Skaven {
+                    return when (type) {
+                        SkavenPlayers.BLITZER -> BlitzerSkaven()
+                        SkavenPlayers.GUTTER_RUNNER -> GutterRunnerSkaven()
+                        SkavenPlayers.LINEMAN -> LinemanSkaven()
+                        SkavenPlayers.THROWER -> ThrowerSkaven()
+                    }
+                }
+
+                override fun randomPlayer(): Skaven {
+                    return build(SkavenPlayers.values().random())
                 }
             }
         )

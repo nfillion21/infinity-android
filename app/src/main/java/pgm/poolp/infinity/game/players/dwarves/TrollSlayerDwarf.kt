@@ -1,12 +1,12 @@
 package pgm.poolp.infinity.game.players.dwarves
 
 import pgm.poolp.infinity.game.params.Dwarf
-import pgm.poolp.infinity.game.utils.CapacitiesEnum
-import pgm.poolp.infinity.game.utils.JobsEnum
+import pgm.poolp.infinity.game.utils.Capacities
+import pgm.poolp.infinity.game.utils.Jobs
 
 class TrollSlayerDwarf : Dwarf {
     override val name: String
-        get() = JobsEnum.TROLL_SLAYER.description
+        get() = Jobs.TROLL_SLAYER.description
     override val move: Int
         get() = 5
     override val throwBall: Int
@@ -14,5 +14,5 @@ class TrollSlayerDwarf : Dwarf {
     override val armour: Int
         get() = 4
     override val capacity: String?
-        get() = CapacitiesEnum.FRENZIED.description
+        get() = Capacities.FRENZIED.description
 }
