@@ -3,6 +3,7 @@ package pgm.poolp.infinity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,8 +29,8 @@ class MainActivity : ComponentActivity() {
                 val pf = GameFactory()
                 val random1 = pf.randomPlayer()
                 val random2 = pf.randomPlayer()
-                val random3 = pf.randomPlayer()
                 val random4 = pf.randomPlayer()
+                val random3 = pf.randomPlayer()
                 val random5 = pf.randomPlayer()
 
                 Scaffold {
@@ -37,6 +38,27 @@ class MainActivity : ComponentActivity() {
                     HomeScreen(
                         modifier = Modifier.padding(innerPaddingModifier),
                         viewModel = foodViewModel)
+                    */
+
+                    /*
+                    LazyColumn {
+                        items(usersData) { user ->
+                            user?.let {
+                                UserCard(user = it)
+                            }
+                        }
+                        when (usersData.loadState.append) {
+                            is LoadState.NotLoading -> Unit
+                            LoadState.Loading -> {
+                                item { LoadingItem() }
+                            }
+                            is LoadState.Error -> {
+                                item {
+                                    ErrorItem(message = (usersData.loadState.append as LoadState.Error).error.message.toString())
+                                }
+                            }
+                        }
+                    }
                     */
                 }
             }
