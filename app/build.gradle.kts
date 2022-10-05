@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -5,14 +7,14 @@ plugins {
 
 android {
     namespace = "pgm.poolp.infinity"
-    compileSdk = 32
+    compileSdk = ConfigData.compileSdkVersion
 
     defaultConfig {
         applicationId = "pgm.poolp.infinity"
-        minSdk = 31
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = ConfigData.minSdkVersion
+        targetSdk = ConfigData.targetSdkVersion
+        versionCode = ConfigData.versionCode
+        versionName = ConfigData.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -61,6 +63,8 @@ dependencies {
     implementation (Dependencies.composeUiToolingPreview)
     implementation (Dependencies.composeMaterial3)
 
+    implementation (Dependencies.lifecycleViewModelCompose)
+
     testImplementation (Dependencies.junit)
 
     androidTestImplementation (Dependencies.androidTestJunit)
@@ -69,4 +73,11 @@ dependencies {
     androidTestImplementation (Dependencies.composeUiTestJUnit4)
     debugImplementation (Dependencies.composeUiTestTooling)
     debugImplementation (Dependencies.composeUiTestManifest)
+
+    implementation (Dependencies.hiltAndroid)
+    //implementation (Dependencies.hiltAndroidCompiler)
+    implementation (Dependencies.hiltNavigationCompose)
+
+    implementation (Dependencies.pagingCompose)
+
 }

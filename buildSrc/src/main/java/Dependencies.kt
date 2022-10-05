@@ -9,6 +9,8 @@ object Dependencies {
     val composeUiToolingPreview by lazy {"androidx.compose.ui:ui-tooling-preview:${Versions.compose}"}
     val composeMaterial3 by lazy {"androidx.compose.material3:material3:${Versions.composeMaterial3}"}
 
+    val lifecycleViewModelCompose by lazy {"androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.lifecycleAndroidX}"}
+
     val junit by lazy {"junit:junit:${Versions.junit}"}
     val composeUiTestJUnit4 by lazy {"androidx.compose.ui:ui-test-junit4:${Versions.compose}"}
     val composeUiTestTooling by lazy {"androidx.compose.ui:ui-tooling:${Versions.compose}"}
@@ -16,4 +18,13 @@ object Dependencies {
 
     val androidTestJunit by lazy {"androidx.test.ext:junit:${Versions.androidTestJUnit}"}
     val androidTestEspresso by lazy {"androidx.test.espresso:espresso-core:${Versions.androidTestEspresso}"}
+
+    // Hilt
+    val hiltAndroid by lazy { "com.google.dagger:hilt-android:${Versions.hiltVersion}" }
+    val hiltAndroidCompiler by lazy { "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}" }
+
+    val hiltNavigationCompose by lazy {"androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationComposeVersion}"}
+
+    // Paging compose
+    val pagingCompose by lazy { "androidx.paging:paging-compose:${Versions.pagingCompose}" }
 }

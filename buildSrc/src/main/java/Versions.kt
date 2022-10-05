@@ -8,4 +8,7 @@ object Versions {
 
     const val androidTestJUnit = "1.1.3"
     const val androidTestEspresso = "3.4.0"
+    const val hiltVersion = "2.44"
+    const val hiltNavigationComposeVersion = "1.0.0"
+    const val pagingCompose = "1.0.0-alpha15"
 }
