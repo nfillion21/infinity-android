@@ -1,26 +1,27 @@
 package pgm.poolp.infinity
 
 import android.os.Bundle
-import android.view.WindowInsets.Type.systemBars
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.*
+import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.view.WindowCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
-import pgm.poolp.infinity.game.builders.GameFactory
 import pgm.poolp.infinity.game.interfaces.Player
 import pgm.poolp.infinity.ui.theme.InfinityTheme
 import pgm.poolp.infinity.viewmodels.PlayerViewModel
@@ -34,28 +35,6 @@ class MainActivity : ComponentActivity() {
         //WindowCompat.setDecorFitsSystemWindows(window, true)
         setContent {
                 InfinityTheme {
-                    // A surface container using the 'background' color from the theme
-                    /*
-                    Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        color = MaterialTheme.colorScheme.background
-                    ) {
-                        Greeting("Android")
-                    }
-                    */
-
-                    val pf = GameFactory()
-                    val random1 = pf.randomPlayer()
-                    val random2 = pf.randomPlayer()
-                    val random3 = pf.randomPlayer()
-                    val random4 = pf.randomPlayer()
-                    val random5 = pf.randomPlayer()
-                    val random6 = pf.randomPlayer()
-                    val random7 = pf.randomPlayer()
-                    val random8 = pf.randomPlayer()
-                    val random9 = pf.randomPlayer()
-                    val random10 = pf.randomPlayer()
-
                     val playerViewModel: PlayerViewModel = hiltViewModel()
 
                     Scaffold {
@@ -71,14 +50,53 @@ class MainActivity : ComponentActivity() {
 fun PlayersList(movies: Flow<PagingData<Player>>) {
     val lazyMovieItems = movies.collectAsLazyPagingItems()
 
+    //CircularProgressIndicator(LocalContext.current)
     LazyColumn(
         contentPadding = WindowInsets.systemBars.asPaddingValues()) {
 
         items(lazyMovieItems) { movie ->
             MovieItem(movie = movie!!)
         }
+
+        item {
+            LinearProgressIndicator()
+        }
+        //CircularProgressIndicator()
     }
+
+    //LinearProgressIndicator()
+
+    /*
+    LinearProgressIndicator(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(15.dp),
+        backgroundColor = Color.LightGray,
+        color = Color.Red //progress color
+    )
+    */
+
+    /*
+    LinearProgressIndicator(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(20.dp)), // Rounded edges
+        progress = progressAnimation
+    )
+    */
 }
+
+/*
+@Composable
+fun FeaturesLinearProgressIndicator() {
+    LinearProgressIndicator(
+        progress = 0.2f,
+        modifier = Modifier.padding(8.dp),
+        color = Color.Green,
+        backgroundColor = Color.Red
+    )
+}
+*/
 
 
 @Composable

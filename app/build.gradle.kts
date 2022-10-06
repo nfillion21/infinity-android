@@ -62,6 +62,7 @@ dependencies {
     implementation (Dependencies.composeUi)
     implementation (Dependencies.composeUiToolingPreview)
     implementation (Dependencies.composeMaterial3)
+    implementation (Dependencies.composeMaterial)
 
     implementation (Dependencies.composeFoundation)
 
