@@ -63,6 +63,8 @@ dependencies {
     implementation (Dependencies.composeUiToolingPreview)
     implementation (Dependencies.composeMaterial3)
 
+    implementation (Dependencies.composeFoundation)
+
     implementation (Dependencies.lifecycleViewModelCompose)
 
     testImplementation (Dependencies.junit)

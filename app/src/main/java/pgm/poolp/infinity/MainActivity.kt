@@ -1,6 +1,7 @@
 package pgm.poolp.infinity
 
 import android.os.Bundle
+import android.view.WindowInsets.Type.systemBars
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
@@ -9,12 +10,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.view.WindowCompat
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
@@ -30,37 +30,39 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //WindowCompat.setDecorFitsSystemWindows(window, true)
         setContent {
-            InfinityTheme {
-                // A surface container using the 'background' color from the theme
-                /*
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-                */
+                InfinityTheme {
+                    // A surface container using the 'background' color from the theme
+                    /*
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
+                    ) {
+                        Greeting("Android")
+                    }
+                    */
 
-                val pf = GameFactory()
-                val random1 = pf.randomPlayer()
-                val random2 = pf.randomPlayer()
-                val random3 = pf.randomPlayer()
-                val random4 = pf.randomPlayer()
-                val random5 = pf.randomPlayer()
-                val random6 = pf.randomPlayer()
-                val random7 = pf.randomPlayer()
-                val random8 = pf.randomPlayer()
-                val random9 = pf.randomPlayer()
-                val random10 = pf.randomPlayer()
+                    val pf = GameFactory()
+                    val random1 = pf.randomPlayer()
+                    val random2 = pf.randomPlayer()
+                    val random3 = pf.randomPlayer()
+                    val random4 = pf.randomPlayer()
+                    val random5 = pf.randomPlayer()
+                    val random6 = pf.randomPlayer()
+                    val random7 = pf.randomPlayer()
+                    val random8 = pf.randomPlayer()
+                    val random9 = pf.randomPlayer()
+                    val random10 = pf.randomPlayer()
 
-                val playerViewModel: PlayerViewModel = hiltViewModel()
+                    val playerViewModel: PlayerViewModel = hiltViewModel()
 
-                Scaffold {
-                    PlayersList(movies = playerViewModel.players)
+                    Scaffold {
+                        PlayersList(movies = playerViewModel.players)
+                    }
                 }
             }
-        }
     }
 }
 
@@ -69,7 +71,8 @@ class MainActivity : ComponentActivity() {
 fun PlayersList(movies: Flow<PagingData<Player>>) {
     val lazyMovieItems = movies.collectAsLazyPagingItems()
 
-    LazyColumn {
+    LazyColumn(
+        contentPadding = WindowInsets.systemBars.asPaddingValues()) {
 
         items(lazyMovieItems) { movie ->
             MovieItem(movie = movie!!)

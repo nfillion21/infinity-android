@@ -9,6 +9,8 @@ object Dependencies {
     val composeUiToolingPreview by lazy {"androidx.compose.ui:ui-tooling-preview:${Versions.compose}"}
     val composeMaterial3 by lazy {"androidx.compose.material3:material3:${Versions.composeMaterial3}"}
 
+    val composeFoundation by lazy {"androidx.compose.foundation:foundation:${Versions.composeFoundation}"}
+
     val lifecycleViewModelCompose by lazy {"androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.lifecycleAndroidX}"}
 
     val junit by lazy {"junit:junit:${Versions.junit}"}
