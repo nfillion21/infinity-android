@@ -5,9 +5,8 @@ object Versions {
     const val compose = "1.2.1"
     const val composeMaterial3 = "1.0.0-alpha02"
     const val composeMaterial = "1.2.1"
+    const val constraintLayout = "1.0.1"
     const val junit = "4.13.2"
-
-    const val composeFoundation = "1.3.0-rc01"
 
     const val androidTestJUnit = "1.1.3"
     const val androidTestEspresso = "3.4.0"

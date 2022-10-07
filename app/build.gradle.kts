@@ -59,12 +59,13 @@ dependencies {
     implementation(Dependencies.coreAndroidX)
     implementation (Dependencies.lifecycleRuntime)
     implementation (Dependencies.activityCompose)
+    implementation (Dependencies.iconsExtended)
     implementation (Dependencies.composeUi)
     implementation (Dependencies.composeUiToolingPreview)
     implementation (Dependencies.composeMaterial3)
     implementation (Dependencies.composeMaterial)
 
-    implementation (Dependencies.composeFoundation)
+    implementation (Dependencies.constraintLayout)
 
     implementation (Dependencies.lifecycleViewModelCompose)
 
@@ -82,5 +83,6 @@ dependencies {
     implementation (Dependencies.hiltNavigationCompose)
 
     implementation (Dependencies.pagingCompose)
+
 
 }
