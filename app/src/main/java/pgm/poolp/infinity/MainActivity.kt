@@ -11,12 +11,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
@@ -48,56 +51,49 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun PlayersList(movies: Flow<PagingData<Player>>) {
+
+    var displayLoading = remember { mutableStateOf(false) }
+
     val lazyMovieItems = movies.collectAsLazyPagingItems()
 
-    //CircularProgressIndicator(LocalContext.current)
     LazyColumn(
         contentPadding = WindowInsets.systemBars.asPaddingValues()) {
+
+        item {
+            LinearProgress(isVisible = displayLoading.value)
+        }
 
         items(lazyMovieItems) { movie ->
             MovieItem(movie = movie!!)
         }
 
-        item {
-            LinearProgressIndicator()
+        lazyMovieItems.apply {
+            when {
+                loadState.refresh is LoadState.Loading -> {
+                    displayLoading.value = true
+                }
+                loadState.append is LoadState.Loading -> {
+                    displayLoading.value = true
+                }
+                else -> displayLoading.value = false
+            }
         }
-        //CircularProgressIndicator()
+
+        item {
+            LinearProgress(isVisible = displayLoading.value)
+        }
     }
-
-    //LinearProgressIndicator()
-
-    /*
-    LinearProgressIndicator(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(15.dp),
-        backgroundColor = Color.LightGray,
-        color = Color.Red //progress color
-    )
-    */
-
-    /*
-    LinearProgressIndicator(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(20.dp)), // Rounded edges
-        progress = progressAnimation
-    )
-    */
 }
 
-/*
 @Composable
-fun FeaturesLinearProgressIndicator() {
-    LinearProgressIndicator(
-        progress = 0.2f,
-        modifier = Modifier.padding(8.dp),
-        color = Color.Green,
-        backgroundColor = Color.Red
-    )
+fun LinearProgress(isVisible: Boolean){
+    if (isVisible) {
+        LinearProgressIndicator(
+            modifier = Modifier
+                .fillMaxWidth()
+        )
+    }
 }
-*/
-
 
 @Composable
 fun MovieItem(movie: Player) {
@@ -109,7 +105,7 @@ fun MovieItem(movie: Player) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         MovieTitle(
-            movie.name!!,
+            movie.toString(),
             modifier = Modifier.weight(1f)
         )
     }
@@ -129,15 +125,9 @@ fun MovieTitle(
     )
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     InfinityTheme {
-        Greeting("Android")
     }
 }

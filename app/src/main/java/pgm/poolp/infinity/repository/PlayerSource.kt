@@ -32,7 +32,7 @@ import pgm.poolp.infinity.game.interfaces.Player
 import kotlin.math.max
 
 private const val STARTING_KEY = 0
-private const val LOAD_DELAY_MILLIS = 3_000L
+private const val LOAD_DELAY_MILLIS = 2_000L
 
 class PlayerSource(private val gameFactory: GameFactory) : PagingSource<Int, Player>() {
 

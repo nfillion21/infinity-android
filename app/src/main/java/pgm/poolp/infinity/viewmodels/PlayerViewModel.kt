@@ -18,7 +18,7 @@ class PlayerViewModel @Inject internal constructor(
 ) : ViewModel()
 {
     val players: Flow<PagingData<Player>> = Pager(
-        config = PagingConfig(pageSize = 20),
+        config = PagingConfig(pageSize = 1, initialLoadSize = 1),
         pagingSourceFactory = { PlayerSource(GameFactory()) })
     .flow.cachedIn(viewModelScope)
 }
