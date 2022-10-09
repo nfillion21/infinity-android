@@ -8,6 +8,9 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import pgm.poolp.infinity.game.builders.GameFactory
 import pgm.poolp.infinity.game.interfaces.Player
 import pgm.poolp.infinity.repository.PlayerSource
@@ -20,5 +23,12 @@ class PlayerViewModel @Inject internal constructor(
     val players: Flow<PagingData<Player>> = Pager(
         config = PagingConfig(pageSize = 1, initialLoadSize = 1),
         pagingSourceFactory = { PlayerSource(GameFactory()) })
-    .flow.cachedIn(viewModelScope)
+        .flow.cachedIn(viewModelScope)
+
+    private val _isLoading = MutableStateFlow<Boolean>(false)
+    val isLoading: StateFlow<Boolean> = _isLoading
+
+    fun setLoading(value:Boolean) {
+        _isLoading.value = value
+    }
 }
