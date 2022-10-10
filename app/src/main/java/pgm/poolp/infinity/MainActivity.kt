@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
@@ -16,6 +17,7 @@ import androidx.compose.material.icons.rounded.SportsFootball
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
@@ -32,6 +34,7 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import pgm.poolp.infinity.game.interfaces.Player
 import pgm.poolp.infinity.ui.theme.InfinityTheme
 import pgm.poolp.infinity.viewmodels.PlayerViewModel
@@ -41,11 +44,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //WindowCompat.setDecorFitsSystemWindows(window, true)
         setContent {
             InfinityTheme {
-                val playerViewModel: PlayerViewModel = hiltViewModel()
-                PlayersList(playerViewModel)
+                androidx.compose.material3.Surface{
+                    val playerViewModel: PlayerViewModel = hiltViewModel()
+                    PlayersList(playerViewModel)
+                }
             }
         }
     }
@@ -55,17 +59,21 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun PlayersList(viewModel: PlayerViewModel) {
 
-
     val lazyMovieItems = viewModel.players.collectAsLazyPagingItems()
     val displayLoading by viewModel.isLoading.collectAsState(initial = false)
 
     Box {
 
+        /*
+        val listState = rememberLazyListState()
+        val coroutineScope = rememberCoroutineScope()
+         */
 
         LazyColumn(
+            //state = listState,
             contentPadding = WindowInsets.systemBars.asPaddingValues()
 
-            ) {
+        ) {
             items(lazyMovieItems) { movie ->
                 EpisodeListItem(
                     player = movie!!,
@@ -75,6 +83,16 @@ fun PlayersList(viewModel: PlayerViewModel) {
 
             lazyMovieItems.apply {
                 when {
+                    /*
+                    loadState.refresh is LoadState.NotLoading -> {
+                        lazyMovieItems.itemCount.takeIf { it >= 0 }?.let {
+                            coroutineScope.launch {
+                                listState.animateScrollToItem(it-1 )
+                            }
+                        }
+                    }
+                    */
+
                     loadState.refresh is LoadState.Loading -> {
                         viewModel.setLoading(true)
                     }
@@ -92,6 +110,8 @@ fun PlayersList(viewModel: PlayerViewModel) {
             Column {
                 Spacer(modifier = Modifier.weight(1f))
                 LinearProgressIndicator(
+                    color = androidx.compose.material3.MaterialTheme.colorScheme.tertiary,
+                    //backgroundColor = androidx.compose.material3.MaterialTheme.colorScheme.secondary,
                     modifier = Modifier
                         .fillMaxWidth()
                         .navigationBarsPadding()
@@ -99,6 +119,7 @@ fun PlayersList(viewModel: PlayerViewModel) {
             }
         }
     }
+
 }
 
 @Composable
@@ -119,7 +140,9 @@ fun EpisodeListItem(
         val keyline1 = 24.dp
 
         Divider(
-            Modifier.constrainAs(divider) {
+            color = androidx.compose.material3.MaterialTheme.colorScheme.tertiary.copy(alpha = 0.25f),
+            modifier = Modifier.constrainAs(divider)
+            {
                 top.linkTo(parent.top)
                 centerHorizontallyTo(parent)
 
@@ -145,7 +168,7 @@ fun EpisodeListItem(
             text = player.name,
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
-            style = androidx.compose.material.MaterialTheme.typography.subtitle1,
+            style = androidx.compose.material3.MaterialTheme.typography.labelMedium,
             modifier = Modifier.constrainAs(episodeTitle) {
                 linkTo(
                     start = parent.start,
@@ -162,32 +185,29 @@ fun EpisodeListItem(
 
         val titleImageBarrier = createBottomBarrier(podcastTitle, logoImage)
 
-        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-            Text(
-                text = player.toString(),
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-                style = androidx.compose.material.MaterialTheme.typography.subtitle2,
-                modifier = Modifier.constrainAs(podcastTitle) {
-                    linkTo(
-                        start = parent.start,
-                        end = logoImage.start,
-                        startMargin = keyline1,
-                        endMargin = 16.dp,
-                        bias = 0f
-                    )
-                    top.linkTo(episodeTitle.bottom, 6.dp)
-                    height = Dimension.preferredWrapContent
-                    width = Dimension.preferredWrapContent
-                }
-            )
-        }
+        Text(
+            text = player.toString(),
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+            style = androidx.compose.material3.MaterialTheme.typography.labelSmall,
+            modifier = Modifier.constrainAs(podcastTitle) {
+                linkTo(
+                    start = parent.start,
+                    end = logoImage.start,
+                    startMargin = keyline1,
+                    endMargin = 16.dp,
+                    bias = 0f
+                )
+                top.linkTo(episodeTitle.bottom, 6.dp)
+                height = Dimension.preferredWrapContent
+                width = Dimension.preferredWrapContent
+            }
+        )
 
-        Image(
+        Icon(
             imageVector = Icons.Rounded.DirectionsRun,
             contentDescription = stringResource(R.string.app_name),
-            contentScale = ContentScale.Fit,
-            colorFilter = ColorFilter.tint(LocalContentColor.current),
+            tint = androidx.compose.material3.MaterialTheme.colorScheme.onSurface,
             modifier = Modifier
                 .size(48.dp)
                 .padding(6.dp)
@@ -198,27 +218,24 @@ fun EpisodeListItem(
                 }
         )
 
-        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-            Text(
-                text = player.move.toString(),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                style = androidx.compose.material.MaterialTheme.typography.caption,
-                modifier = Modifier.constrainAs(moveText) {
-                    centerVerticallyTo(moveIcon)
-                    start.linkTo(moveIcon.end, 12.dp)
-                    width = Dimension.preferredWrapContent
-                }
-            )
-        }
+        Text(
+            text = player.move.toString(),
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.constrainAs(moveText) {
+                centerVerticallyTo(moveIcon)
+                start.linkTo(moveIcon.end, 12.dp)
+                width = Dimension.preferredWrapContent
+            }
+        )
 
         val runBarrier = createBottomBarrier(moveText, moveIcon)
 
-        Image(
+        Icon(
             imageVector = Icons.Rounded.SportsFootball,
             contentDescription = stringResource(R.string.app_name),
-            contentScale = ContentScale.Fit,
-            colorFilter = ColorFilter.tint(LocalContentColor.current),
+            tint = androidx.compose.material3.MaterialTheme.colorScheme.onSurface,
             modifier = Modifier
                 .size(48.dp)
                 .padding(6.dp)
@@ -229,27 +246,24 @@ fun EpisodeListItem(
                 }
         )
 
-        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-            Text(
-                text = player.throwBall.toString(),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                style = androidx.compose.material.MaterialTheme.typography.caption,
-                modifier = Modifier.constrainAs(throwBallText) {
-                    centerVerticallyTo(throwBallIcon)
-                    start.linkTo(moveIcon.end, 12.dp)
-                    width = Dimension.preferredWrapContent
-                }
-            )
-        }
+        Text(
+            text = player.throwBall.toString() + " +",
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.constrainAs(throwBallText) {
+                centerVerticallyTo(throwBallIcon)
+                start.linkTo(moveIcon.end, 12.dp)
+                width = Dimension.preferredWrapContent
+            }
+        )
 
         val armourBarrier = createBottomBarrier(throwBallText, throwBallIcon)
 
-        Image(
+        Icon(
             imageVector = Icons.Rounded.Shield,
             contentDescription = stringResource(R.string.app_name),
-            contentScale = ContentScale.Fit,
-            colorFilter = ColorFilter.tint(LocalContentColor.current),
+            tint = androidx.compose.material3.MaterialTheme.colorScheme.onSurface,
             modifier = Modifier
                 .size(48.dp)
                 .padding(6.dp)
@@ -261,19 +275,17 @@ fun EpisodeListItem(
                 }
         )
 
-        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-            Text(
-                text = player.armour.toString(),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                style = androidx.compose.material.MaterialTheme.typography.caption,
-                modifier = Modifier.constrainAs(armourText) {
-                    centerVerticallyTo(armourIcon)
-                    start.linkTo(moveIcon.end, 12.dp)
-                    width = Dimension.preferredWrapContent
-                }
-            )
-        }
+        Text(
+            text = player.armour.toString() + " +",
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.constrainAs(armourText) {
+                centerVerticallyTo(armourIcon)
+                start.linkTo(moveIcon.end, 12.dp)
+                width = Dimension.preferredWrapContent
+            }
+        )
     }
 }
 
