@@ -1,5 +1,6 @@
 package pgm.poolp.infinity.game.params
 
+import pgm.poolp.infinity.R
 import pgm.poolp.infinity.game.interfaces.Player
 
 enum class HumanPlayers {
@@ -8,4 +9,10 @@ enum class HumanPlayers {
     LINEMAN,
     THROWER
 }
-interface Human : Player
+interface Human : Player {
+    override val icon: Int
+        get() = R.drawable.humans
+
+    override val race: String
+        get() = "Human"
+}

@@ -6,4 +6,6 @@ interface Player {
     val throwBall : Int
     val armour : Int
     val capacity : String?
+    val icon: Int
+    val race: String
 }
