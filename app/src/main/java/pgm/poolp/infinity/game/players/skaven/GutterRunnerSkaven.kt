@@ -15,4 +15,6 @@ class GutterRunnerSkaven : Skaven {
         get() = 6
     override val capacity: String?
         get() = Capacities.SNEAKY_STABBER.description
+    override val cardUrl: String
+        get() = "gutterrunnerskaven.png"
 }

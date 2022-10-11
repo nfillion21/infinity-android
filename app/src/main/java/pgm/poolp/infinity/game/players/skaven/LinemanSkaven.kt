@@ -14,4 +14,6 @@ class LinemanSkaven : Skaven {
         get() = 5
     override val capacity: String?
         get() = null
+    override val cardUrl: String
+        get() = "linemanskaven.png"
 }

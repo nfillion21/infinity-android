@@ -15,4 +15,6 @@ class HopefulHalfling : Halfling {
         get() = 6
     override val capacity: String?
         get() = Capacities.QUANTITY_OVER_QUALITY.description
+    override val cardUrl: String
+        get() = "hopefulhalfling.png"
 }

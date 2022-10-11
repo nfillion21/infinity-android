@@ -15,4 +15,6 @@ class SkinkRunnerLizardmen : Lizardmen {
         get() = 5
     override val capacity: String?
         get() = Capacities.FLIGHTY.description
+    override val cardUrl: String
+        get() = "skinkrunnerlizardmen.png"
 }

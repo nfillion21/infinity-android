@@ -15,4 +15,6 @@ class TrollSlayerDwarf : Dwarf {
         get() = 4
     override val capacity: String?
         get() = Capacities.FRENZIED.description
+    override val cardUrl: String
+        get() = "trollslayerdwarf.png"
 }

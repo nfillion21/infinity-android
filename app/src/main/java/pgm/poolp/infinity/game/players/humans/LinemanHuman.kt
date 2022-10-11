@@ -14,4 +14,6 @@ class LinemanHuman : Human {
         get() = 4
     override val capacity: String?
         get() = null
+    override val cardUrl: String
+        get() = "linemanhuman.png"
 }

@@ -1,5 +1,9 @@
 package pgm.poolp.infinity.game.utils
 
+object Utils {
+    val baseImagesUrl:String = "https://www.ug-data.xyz/infinity/images/"
+}
+
 enum class Capacities(val description:String) {
     CATCHERS_INSTINCT("Catcher's instincts. If this player catches a thrown ball (not a hand-off or bouncing ball), roll a six-sided dice. This player can make a free Run action up to that many squares."),
     HEADBUTT("Headbutt. If this player makes a Mark action and they have already made a Run action this turn, they can immediately make a free Block action."),

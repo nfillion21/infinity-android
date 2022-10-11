@@ -15,4 +15,6 @@ class ThrowerElf : Elf {
         get() = 5
     override val capacity: String?
         get() = Capacities.HANDLING_SKILLS.description
+    override val cardUrl: String
+        get() = "throwerelf.png"
 }

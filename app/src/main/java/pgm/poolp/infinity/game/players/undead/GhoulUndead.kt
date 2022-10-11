@@ -15,4 +15,6 @@ class GhoulUndead : Undead {
         get() = 4
     override val capacity: String?
         get() = Capacities.FLESH_HUNGRY_HORROR.description
+    override val cardUrl: String
+        get() = "ghoulundead.png"
 }

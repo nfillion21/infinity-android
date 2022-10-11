@@ -47,6 +47,7 @@ import coil.compose.rememberAsyncImagePainter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import pgm.poolp.infinity.game.interfaces.Player
+import pgm.poolp.infinity.game.utils.Utils
 import pgm.poolp.infinity.ui.theme.InfinityTheme
 import pgm.poolp.infinity.viewmodels.PlayerViewModel
 
@@ -322,7 +323,7 @@ fun EpisodeListItem(
             Box(Modifier.clickable { openDialog.value = false }) {
                 SubcomposeAsyncImage(
                     modifier = Modifier.fillMaxSize(),
-                    model = "https://www.ug-data.xyz/infinity/images/blockerchaos",
+                    model = Utils.baseImagesUrl + player.cardUrl,
                     contentDescription = null
                 ) {
 

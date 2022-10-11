@@ -14,4 +14,6 @@ class LinemanElf : Elf {
         get() = 5
     override val capacity: String?
         get() = null
+    override val cardUrl: String
+        get() = "linemanelf.png"
 }

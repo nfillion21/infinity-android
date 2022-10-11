@@ -15,4 +15,6 @@ class ChameleonSkinkLizardmen : Lizardmen {
         get() = 5
     override val capacity: String?
         get() = Capacities.CANNY_TRACKER.description
+    override val cardUrl: String
+        get() = "chameleonskinklizardmen.png"
 }

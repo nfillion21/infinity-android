@@ -14,4 +14,6 @@ class ZombieUndead : Undead {
         get() = 3
     override val capacity: String?
         get() = null
+    override val cardUrl: String
+        get() = "zombieundead.png"
 }

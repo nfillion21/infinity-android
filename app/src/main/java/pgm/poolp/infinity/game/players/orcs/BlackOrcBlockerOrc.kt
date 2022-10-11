@@ -15,4 +15,6 @@ class BlackOrcBlockerOrc : Orc {
         get() = 2
     override val capacity: String?
         get() = Capacities.HULKING_BRUTE.description
+    override val cardUrl: String
+        get() = "blackorcblockerorc.png"
 }

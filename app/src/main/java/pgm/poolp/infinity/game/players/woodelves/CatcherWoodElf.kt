@@ -15,4 +15,6 @@ class CatcherWoodElf : WoodElf {
         get() = 6
     override val capacity: String?
         get() = Capacities.CATCHERS_INSTINCT.description
+    override val cardUrl: String
+        get() = "catcherwoodelf.png"
 }

@@ -15,4 +15,6 @@ class LinemanGoblin : Goblin {
         get() = 6
     override val capacity: String?
         get() = Capacities.SMALL_AND_SHIFTY.description
+    override val cardUrl: String
+        get() = "linemangoblin.png"
 }

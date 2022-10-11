@@ -15,4 +15,6 @@ class WightBlitzerUndead : Undead {
         get() = 3
     override val capacity: String?
         get() = Capacities.OFFENSIVE_SPECIALIST.description
+    override val cardUrl: String
+        get() = "wightblitzerundead.png"
 }

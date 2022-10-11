@@ -15,4 +15,6 @@ class MummyUndead : Undead {
         get() = 2
     override val capacity: String?
         get() = Capacities.UNDEAD_JUGGERNAUT.description
+    override val cardUrl: String
+        get() = "mummyundead.png"
 }

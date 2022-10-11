@@ -15,4 +15,6 @@ class BloaterNurgle : Nurgle {
         get() = 2
     override val capacity: String?
         get() = Capacities.IMMOVABLE_BULK.description
+    override val cardUrl: String
+        get() = "bloaternurgle.png"
 }

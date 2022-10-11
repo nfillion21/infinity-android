@@ -15,4 +15,6 @@ class WitchElfDarkElf : DarkElf {
         get() = 5
     override val capacity: String?
         get() = Capacities.FRENZIED.description
+    override val cardUrl: String
+        get() = "witchelfdarkelf.png"
 }

@@ -15,4 +15,6 @@ class PestigorNurgle : Nurgle {
         get() = 4
     override val capacity: String?
         get() = Capacities.HEADBUTT.description
+    override val cardUrl: String
+        get() = "pestigornurgle.png"
 }

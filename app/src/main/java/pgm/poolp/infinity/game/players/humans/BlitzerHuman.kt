@@ -15,4 +15,6 @@ class BlitzerHuman : Human {
         get() = 4
     override val capacity: String?
         get() = Capacities.OFFENSIVE_SPECIALIST.description
+    override val cardUrl: String
+        get() = "blitzerhuman.png"
 }

@@ -15,4 +15,6 @@ class RunnerHalfling : Halfling {
         get() = 6
     override val capacity: String?
         get() = Capacities.SLIPPERY_LITTLE_RUNT.description
+    override val cardUrl: String
+        get() = "runnerhalfling.png"
 }

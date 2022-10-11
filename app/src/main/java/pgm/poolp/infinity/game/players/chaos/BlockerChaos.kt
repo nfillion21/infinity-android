@@ -15,4 +15,6 @@ class BlockerChaos : Chaos {
         get() = 3
     override val capacity: String?
         get() = Capacities.INDOMITABLE.description
+    override val cardUrl: String
+        get() = "blockerchaos.png"
 }

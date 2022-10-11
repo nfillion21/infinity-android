@@ -14,4 +14,6 @@ class RotterNurgle : Nurgle {
         get() = 3
     override val capacity: String?
         get() = null
+    override val cardUrl: String
+        get() = "rotternurgle.png"
 }

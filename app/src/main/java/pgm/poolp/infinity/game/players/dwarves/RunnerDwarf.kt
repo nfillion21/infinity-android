@@ -15,4 +15,6 @@ class RunnerDwarf : Dwarf {
         get() = 3
     override val capacity: String?
         get() = Capacities.SAFE_HANDS.description
+    override val cardUrl: String
+        get() = "runnerdwarf.png"
 }

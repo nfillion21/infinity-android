@@ -15,4 +15,6 @@ class BlitzerDarkElf : DarkElf {
         get() = 4
     override val capacity: String?
         get() = Capacities.OFFENSIVE_SPECIALIST.description
+    override val cardUrl: String
+        get() = "blitzerdarkelf.png"
 }

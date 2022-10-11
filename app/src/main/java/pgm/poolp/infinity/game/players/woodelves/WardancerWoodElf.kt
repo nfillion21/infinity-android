@@ -15,4 +15,6 @@ class WardancerWoodElf : WoodElf {
         get() = 5
     override val capacity: String?
         get() = Capacities.WARDANCE.description
+    override val cardUrl: String
+        get() = "wardancerwoodelf.png"
 }

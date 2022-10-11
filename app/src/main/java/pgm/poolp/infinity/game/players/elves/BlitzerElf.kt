@@ -15,4 +15,6 @@ class BlitzerElf : Elf {
         get() = 5
     override val capacity: String?
         get() = Capacities.OFFENSIVE_SPECIALIST.description
+    override val cardUrl: String
+        get() = "blitzerelf.png"
 }
