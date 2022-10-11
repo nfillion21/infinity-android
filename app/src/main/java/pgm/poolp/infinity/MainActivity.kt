@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -36,6 +37,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import androidx.paging.compose.itemsIndexed
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import pgm.poolp.infinity.game.interfaces.Player
@@ -77,9 +79,11 @@ fun PlayersList(viewModel: PlayerViewModel) {
             contentPadding = WindowInsets.systemBars.asPaddingValues()
 
         ) {
-            items(lazyMovieItems) { movie ->
+            itemsIndexed(lazyMovieItems) { index, movie ->
                 EpisodeListItem(
                     player = movie!!,
+                    key = index,
+                    itemCount = lazyMovieItems.itemCount,
                     modifier = Modifier.fillParentMaxWidth()
                 )
             }
@@ -128,6 +132,8 @@ fun PlayersList(viewModel: PlayerViewModel) {
 @Composable
 fun EpisodeListItem(
     player: Player,
+    key: Int,
+    itemCount: Int,
     modifier: Modifier = Modifier
 ) {
     ConstraintLayout(modifier = modifier.clickable { /*onClick(episode.uri) */ }) {
@@ -137,6 +143,7 @@ fun EpisodeListItem(
             podcastTitle, moveIcon, moveText,
             throwBallIcon, throwBallText,
             armourIcon, armourText,
+            counter
 
         ) = createRefs()
 
@@ -158,7 +165,7 @@ fun EpisodeListItem(
             contentDescription = stringResource(R.string.app_name),
             contentScale = ContentScale.Fit,
             modifier = Modifier
-                .size(56.dp)
+                .size(92.dp)
                 .clip(RoundedCornerShape(10.dp))
                 .semantics { role = Role.Image }
                 .constrainAs(logoImage) {
@@ -217,7 +224,7 @@ fun EpisodeListItem(
                 .semantics { role = Role.Image }
                 .constrainAs(moveIcon) {
                     start.linkTo(parent.start, keyline1)
-                    top.linkTo(titleImageBarrier, margin = 10.dp)
+                    top.linkTo(podcastTitle.bottom, margin = 10.dp)
                 }
         )
 
@@ -288,6 +295,16 @@ fun EpisodeListItem(
                 start.linkTo(moveIcon.end, 12.dp)
                 width = Dimension.preferredWrapContent
             }
+        )
+
+        Text(
+            text = "${key+1}/$itemCount",
+            style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+            modifier = Modifier
+                .constrainAs(counter) {
+                    end.linkTo(parent.end, 16.dp)
+                    bottom.linkTo(parent.bottom, 16.dp)
+                }
         )
     }
 }
