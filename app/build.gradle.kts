@@ -83,6 +83,7 @@ dependencies {
     implementation (Dependencies.hiltNavigationCompose)
 
     implementation (Dependencies.pagingCompose)
+    implementation (Dependencies.coilCompose)
 
 
 }

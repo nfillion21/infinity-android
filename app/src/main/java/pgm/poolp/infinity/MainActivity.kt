@@ -18,6 +18,7 @@ import androidx.compose.material.icons.rounded.Shield
 import androidx.compose.material.icons.rounded.SportsFootball
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -31,6 +32,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -38,6 +40,10 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import androidx.paging.compose.itemsIndexed
+import coil.compose.AsyncImagePainter
+import coil.compose.SubcomposeAsyncImage
+import coil.compose.SubcomposeAsyncImageContent
+import coil.compose.rememberAsyncImagePainter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import pgm.poolp.infinity.game.interfaces.Player
@@ -136,7 +142,9 @@ fun EpisodeListItem(
     itemCount: Int,
     modifier: Modifier = Modifier
 ) {
-    ConstraintLayout(modifier = modifier.clickable { /*onClick(episode.uri) */ }) {
+    var openDialog = remember { mutableStateOf(false) }
+
+    ConstraintLayout(modifier = modifier.clickable { openDialog.value = true }) {
         val (
             divider,
             logoImage, episodeTitle,
@@ -306,6 +314,34 @@ fun EpisodeListItem(
                     bottom.linkTo(parent.bottom, 16.dp)
                 }
         )
+    }
+
+    if (openDialog.value) {
+        Dialog(onDismissRequest = { openDialog.value = false }) {
+
+            Box(Modifier.clickable { openDialog.value = false }) {
+                SubcomposeAsyncImage(
+                    modifier = Modifier.fillMaxSize(),
+                    model = "https://www.ug-data.xyz/infinity/images/blockerchaos",
+                    contentDescription = null
+                ) {
+
+                    val state = painter.state
+                    if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
+                        Image(
+                            painter = painterResource(id = player.icon),
+                            contentDescription = stringResource(R.string.app_name),
+                            contentScale = ContentScale.Fit,
+                            modifier = Modifier
+                                .align(Alignment.Center),
+                        )
+                    } else {
+                        SubcomposeAsyncImageContent()
+                    }
+                }
+
+            }
+        }
     }
 }
 

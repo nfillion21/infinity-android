@@ -15,4 +15,6 @@ class BeastmanRunnerChaos : Chaos {
         get() = 3
     override val capacity: String?
         get() = Capacities.HEADBUTT.description
+    override val cardUrl: String
+        get() = "https://www.ug-data.xyz/infinity/beastmanrunnerchaos.png"
 }

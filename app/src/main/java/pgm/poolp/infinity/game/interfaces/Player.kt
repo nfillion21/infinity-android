@@ -8,4 +8,5 @@ interface Player {
     val capacity : String?
     val icon: Int
     val race: String
+    val cardUrl: String
 }
