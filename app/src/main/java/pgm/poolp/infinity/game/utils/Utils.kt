@@ -1,7 +1,7 @@
 package pgm.poolp.infinity.game.utils
 
 object Utils {
-    const val baseImagesUrl:String = "https://www.ug-data.xyz/infinity/images/"
+    const val baseImagesUrl:String = "https://www.poolp.xyz/infinity/images/"
 }
 
 enum class Capacities(val description:String) {
